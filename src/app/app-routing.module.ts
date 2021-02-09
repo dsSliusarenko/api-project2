@@ -5,6 +5,7 @@ import {PostComponent} from './post/post.component';
 import {AllPostsComponent} from './all-posts/all-posts.component';
 import {SinglePostComponent} from './single-post/single-post.component';
 import {TempComponent} from './temp/temp.component';
+import {CreatePostComponent} from './create-post/create-post.component';
 
 const appRoutes: Routes = [
   {path: '', component: PostComponent},
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
       {path: ':id', component: SinglePostComponent}
     ]
   },
+  {path: 'create', component: CreatePostComponent},
   {path: '**', component: NotFoundComponent}
 ];
 

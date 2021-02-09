@@ -15,6 +15,7 @@ import { AllPostsComponent } from './all-posts/all-posts.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { TempComponent } from './temp/temp.component';
 import { FooterComponent } from './footer/footer.component';
+import {CreatePostComponent} from './create-post/create-post.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FooterComponent } from './footer/footer.component';
     AllPostsComponent,
     SinglePostComponent,
     TempComponent,
-    FooterComponent
+    FooterComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,

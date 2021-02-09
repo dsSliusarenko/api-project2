@@ -1,4 +1,4 @@
-<div class="container"
+<div class="container list-section-padding"
      *ngIf="posts$ | async as posts">
 
   <h4
@@ -29,8 +29,8 @@
 
   <p> Number of received posts: {{ posts.length }} </p>
 
-  <button type="button" class="btn btn-info float-end" (click)="checkSelectPost()">Refresh</button>
-  <a class="btn btn-info" routerLink="/posts" [class.disabled]="disableSeeAllPostsButton" role="button">See all post</a>
+<!--  <button type="button" class="btn btn-info float-end">Refresh</button>-->
+  <a class="btn btn-info float-end" routerLink="/posts" role="button" >See all post</a>
 
 </div>
 

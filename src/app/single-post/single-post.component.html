@@ -1,4 +1,4 @@
-<div class="container padding-class"
+<div class="container padding-class shadow p-3 mb-5 bg-white "
      *ngIf="post$ | async as post">
 
   <h3>{{post?.title ? post?.title : 'Post Title'}}</h3>
@@ -12,7 +12,15 @@
 
   <p>{{ post.content }}</p>
 
-  <p class="inform">created: {{ post?.created_at | date: 'short'}} | last
-    edit: {{ post?.updated_at | date: 'short' }}</p>
+  <div class="row">
 
+    <div class="col">
+      <p class="inform">created: {{ post?.created_at | date: 'short'}} | last
+        edit: {{ post?.updated_at | date: 'short' }}</p>
+    </div>
+
+    <div class="col">
+      <button class="btn bg-info float-end" routerLink="/posts">Back</button>
+    </div>
+  </div>
 </div>

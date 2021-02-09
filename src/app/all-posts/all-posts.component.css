@@ -1,5 +1,39 @@
 .container img{
   border-radius: 30px;
-  width: 550px;
+  width: 100%;
   height: 350px;
 }
+
+.card {
+  border: none;
+}
+
+.card-text{
+  /*padding: 10px;*/
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*.card:hover{*/
+/* some hover effect here*/
+/*}*/
+
+.inform {
+  margin: 0;
+  padding: 0;
+}
+
+.card-title{
+  padding-bottom: 15px;
+}
+
+.card-body a {
+  text-decoration-line: none;
+  color: black;
+}
+
+.card-body a:hover {
+  text-decoration-line: underline;
+  /*color: black;*/
+}
+

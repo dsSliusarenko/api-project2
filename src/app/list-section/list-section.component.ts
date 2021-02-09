@@ -16,7 +16,7 @@ export class ListSectionComponent implements OnInit {
   selectItem: number;
   numberOfDefaultPosts = [1, 2, 3, 4, 5, 6, 7];
 
-  disableSeeAllPostsButton = true;
+  // disableSeeAllPostsButton = true;
 
   posts$: Observable<Post[]>;
 
@@ -32,8 +32,8 @@ export class ListSectionComponent implements OnInit {
     this.sendPostEvent.emit(post);
   }
 
-  checkSelectPost(): void {
-    this.disableSeeAllPostsButton = false;
-  }
+  // checkSelectPost(): void {
+  //   this.disableSeeAllPostsButton = false;
+  // }
 
 }

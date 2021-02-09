@@ -3,6 +3,10 @@
   width: 550px;
 }
 
+.image-height-restriction{
+  height: 350px;
+}
+
 .padding-class {
   padding-top: 30px;
 }
@@ -31,10 +35,15 @@
   padding-top: 10px;
 }
 
-.post-section {
-  padding-top: 100px;
+.post {
+  padding-top: 50px;
 }
 
 .inform {
   font-size: small;
+  align-self: flex-end;
+}
+
+.list-section-padding {
+  padding-top: 45px;
 }
