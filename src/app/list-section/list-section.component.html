@@ -1,0 +1,41 @@
+<div class="container"
+     *ngIf="posts$ | async as posts">
+
+  <h4
+  *ngIf="posts.length === 0; else title_template">
+    List of posts: <br> (please, refresh list)</h4>
+  <ng-template #title_template> <h4>List of post:</h4></ng-template>
+
+  <div class="ng_if"
+       *ngIf="posts.length >= 1; else template">
+
+
+    <div class="indexed-list"
+         *ngFor="let post of posts, index as i"
+         (click)="getClickEvent(post); selectItem = post.id">
+      <a href="#"
+         class="list-group-item list-group-item-action" [class.list-group-item-primary]="selectItem === post.id"
+      >Post №{{post.id}}</a>
+    </div>
+
+  </div>
+
+  <ng-template #template>
+    <div class="default-list"
+         *ngFor="let i of numberOfDefaultPosts">
+      <a href="#" class="list-group-item list-group-item-action">Post №</a>
+    </div>
+  </ng-template>
+
+  <p> Number of received posts: {{ posts.length }} </p>
+
+  <button type="button" class="btn btn-info float-end" (click)="checkSelectPost()">Refresh</button>
+  <a class="btn btn-info" routerLink="/posts" [class.disabled]="disableSeeAllPostsButton" role="button">See all post</a>
+
+</div>
+
+
+
+
+
+

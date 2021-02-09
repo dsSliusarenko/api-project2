@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+.container img{
+  border-radius: 30px;
+  width: 550px;
+}
+
+.padding-class {
+  padding-top: 50px;
+}
+
+.list-group{
+  padding-top: 30px;
+}
+
+.description {
+  padding-top: 30px;
+}
+
+.login-button {
+  justify-content: end;
+}
+
+.hide-post-list {
+  display: none;
+}
+
+.container h4 {
+  padding-bottom: 15px;
+}
+
+.container p {
+  padding-top: 10px;
+}
+
+.post-section {
+  padding-top: 100px;
+}
+
+.inform {
+  font-size: small;
+}

@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="post-section">
+
+    <div class="row">
+
+      <div class="col-8">
+        <app-post-section
+          [post]="post"
+        ></app-post-section>
+      </div>
+
+      <div class="col-4">
+        <app-autorization-section></app-autorization-section>
+        <br>
+        <app-list-section
+          (sendPostEvent)="post = $event"
+        ></app-list-section>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+<!--<div class="container">-->
+<!--  <div class="post-section">-->
+
+<!--    <div class="row">-->
+
+<!--      <div class="col-8">-->
+<!--        <app-post-section-->
+<!--          [post]="post"-->
+<!--        ></app-post-section>-->
+<!--      </div>-->
+
+<!--      <div class="col-4">-->
+<!--        <app-autorization-section></app-autorization-section>-->
+<!--        <br>-->
+<!--        <app-list-section-->
+<!--          (sendPostEvent)="post = $event"-->
+<!--        ></app-list-section>-->
+<!--      </div>-->
+
+
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</div>-->

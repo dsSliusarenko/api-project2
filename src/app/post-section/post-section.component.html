@@ -1,0 +1,13 @@
+<div class="container">
+<h3>{{post?.title ? post?.title : 'Post Title'}}</h3>
+
+<p>{{ post?.description ? post?.description : 'Description'}}</p>
+
+<img
+  class="shadow"
+  [src]="post?.image ? 'https://ngx-training.com'+post?.image?.url : 'https://www.releasedanceacademy.com/wp-content/uploads/2020/07/placeholder-3.png'"
+  alt="">
+
+<p class="inform">created: {{ post?.created_at | date: 'short'}} | last edit: {{ post?.updated_at | date: 'short' }}</p>
+
+</div>
