@@ -14,6 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AllPostsComponent } from './all-posts/all-posts.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { TempComponent } from './temp/temp.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TempComponent } from './temp/temp.component';
     NotFoundComponent,
     AllPostsComponent,
     SinglePostComponent,
-    TempComponent
+    TempComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
