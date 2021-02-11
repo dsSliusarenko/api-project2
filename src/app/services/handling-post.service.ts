@@ -9,8 +9,6 @@ import {environment} from '../../environments/environment';
 })
 
 export class HandlingPostService {
-  // response: any;
-  // posts: Post[] = [];
 
   private apiUrl: string = environment.apiUrl + '/posts';
 

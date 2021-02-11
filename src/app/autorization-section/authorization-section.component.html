@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!(isUserLoggedIn$ | async); else LogOut">
   <h4>Authorization:</h4>
 
   <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
@@ -62,10 +62,14 @@
       >
     </div>
     <br>
-    <button class="btn btn-info float-end" type="submit" [disabled]="authForm.invalid">Log In</button>
+    <button class="btn btn-info float-end" type="submit" [disabled]="authForm.invalid">{{ 'Log In' }}</button>
 
   </form>
 
 </div>
+
+<ng-template #LogOut>
+  <button class="btn btn-info" (click)="logOut()">Log Out</button>
+</ng-template>
 
 
