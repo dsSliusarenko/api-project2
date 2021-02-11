@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { PostComponent } from './post/post.component';
-import { AutorizationSectionComponent } from './autorization-section/autorization-section.component';
+import { AuthorizationSectionComponent } from './autorization-section/authorization-section.component';
 import { PostSectionComponent } from './post-section/post-section.component';
 import { ListSectionComponent } from './list-section/list-section.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -22,7 +22,7 @@ import {CreatePostComponent} from './create-post/create-post.component';
     AppComponent,
     HeaderComponent,
     PostComponent,
-    AutorizationSectionComponent,
+    AuthorizationSectionComponent,
     PostSectionComponent,
     ListSectionComponent,
     NotFoundComponent,

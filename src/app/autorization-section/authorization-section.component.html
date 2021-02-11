@@ -1,0 +1,71 @@
+<div class="container">
+  <h4>Authorization:</h4>
+
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+
+
+    <!--    <div class="input-group flex-nowrap">-->
+    <!--          <span class="input-group-text">-->
+    <!--              <img class="auth-image" src="./assets/images/user.svg" alt="">-->
+    <!--          </span>-->
+    <!--      <label for="username"></label>-->
+    <!--      <input type="text" class="form-control" id="username" placeholder="Username" required="required">-->
+    <!--    </div>-->
+
+    <!--    <br>-->
+
+    <!--    <div class="input-group flex-nowrap">-->
+    <!--        <span class="input-group-text">-->
+    <!--            <img class="auth-image" src="./assets/images/lock.svg" alt="">-->
+    <!--        </span>-->
+    <!--      <label for="password"></label>-->
+    <!--      <input type="password" class="form-control" id="password" placeholder="Password" required="required">-->
+    <!--    </div>-->
+
+    <!--    <br>-->
+
+    <!--    <div class="row">-->
+    <!--      <div class="col">-->
+    <!--        <button type="button" class="btn btn-info float-start">Registration</button>-->
+    <!--      </div>-->
+    <!--&lt;!&ndash;      <div class="col>&ndash;&gt;-->
+    <!--        <button type="submit" class="btn btn-info float-end" [disabled]="!authForm.valid">Log In</button>-->
+    <!--&lt;!&ndash;      </div>&ndash;&gt;-->
+
+    <!--    </div>-->
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="E-mail"
+        ngModel
+        name="email"
+        required
+        email
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        ngModel
+        name="password"
+        required
+        minlength="15"
+      >
+    </div>
+    <br>
+    <button class="btn btn-info float-end" type="submit" [disabled]="authForm.invalid">Log In</button>
+
+  </form>
+
+</div>
+
+
