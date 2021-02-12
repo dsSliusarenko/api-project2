@@ -24,7 +24,6 @@ export class AuthorizationSectionComponent implements OnInit {
     if (authForm.invalid) {
       return;
     }
-    // console.log(authForm.value);
     const email = authForm.value.email;
     const password = authForm.value.password;
 

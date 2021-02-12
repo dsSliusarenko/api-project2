@@ -10,6 +10,7 @@ export class AuthService {
 
   private apiUrl: string = environment.apiUrl + '/auth/local';
   currentUserSubject: BehaviorSubject<AuthInterface>;
+   isAuth = false;
 
   constructor(private  http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<AuthInterface>(JSON.parse(localStorage.getItem('currentUser')));
@@ -26,8 +27,11 @@ export class AuthService {
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
       this.currentUserSubject.next(currentUser);
       // TODO: hint task 4
+      this.isAuth = true;
+
       if (currentUser.jwt) {
         this.router.navigate(['/create']);
+        // this.isAuth = false;
       }
     });
   }
