@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AuthInterface} from './auth.interface';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
 
@@ -10,10 +10,15 @@ export class AuthService {
 
   private apiUrl: string = environment.apiUrl + '/auth/local';
   currentUserSubject: BehaviorSubject<AuthInterface>;
-   isAuth = false;
+  isAuth = false;
 
   constructor(private  http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<AuthInterface>(JSON.parse(localStorage.getItem('currentUser')));
+  }
+
+  // this getter allow us to check is user authenticated or not
+  get isAuthenticated(): boolean {
+    return this.currentUserSubject.value !== null;
   }
 
   signIn(email: string, password: string): void {
@@ -27,18 +32,23 @@ export class AuthService {
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
       this.currentUserSubject.next(currentUser);
       // TODO: hint task 4
-      this.isAuth = true;
-
-      if (currentUser.jwt) {
-        this.router.navigate(['/create']);
-        // this.isAuth = false;
-      }
+      // if (currentUser.jwt) {
+      //   this.router.navigate(['/create']);
+      // }
     });
   }
 
   signOut(): void {
     localStorage.removeItem('currentUser');
-    this.currentUserSubject.next({} as AuthInterface);
+    this.isAuth = false;
+    this.currentUserSubject.next(null);
     this.router.navigate(['/']);
+  }
+
+  getUserLogin(): string {
+    return JSON.parse(localStorage.getItem('currentUser')).user.email;
+  }
+  getUserName(): string {
+    return JSON.parse(localStorage.getItem('currentUser')).user.username;
   }
 }

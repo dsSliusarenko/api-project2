@@ -10,7 +10,21 @@
       </div>
 
       <div class="col-4">
-        <app-authorization-section></app-authorization-section>
+
+<!--        <app-spinner-->
+<!--          *ngIf="isloading"-->
+<!--        ></app-spinner>-->
+
+        <div class="row" *ngIf="!(isUserLoggedIn$ | async); else LogOut">
+          <app-authorization-section></app-authorization-section>
+        </div>
+
+        <ng-template #LogOut>
+          <div class="row">
+            <app-profile></app-profile>
+          </div>
+        </ng-template>
+
         <br>
         <app-list-section
           (sendPostEvent)="post = $event"

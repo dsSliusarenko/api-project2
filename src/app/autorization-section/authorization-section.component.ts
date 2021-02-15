@@ -30,7 +30,6 @@ export class AuthorizationSectionComponent implements OnInit {
 
     this.authService.signIn(email, password);
 
-    authForm.reset();
   }
 
   logOut(): void {

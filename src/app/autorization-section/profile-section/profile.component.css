@@ -1,0 +1,22 @@
+.profile-section img{
+  /*height: 20px;*/
+  width: 100px;
+  border-radius: 50%;
+}
+
+.profile-section p{
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.profile-section button{
+  margin-top: 40px;
+}
+
+.profile-section {
+  /*padding: 0;*/
+  /*border: 1px solid gray;*/
+}
+.user-info {
+  padding-top: 20px;
+}

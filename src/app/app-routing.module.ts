@@ -7,6 +7,7 @@ import {SinglePostComponent} from './single-post/single-post.component';
 import {TempComponent} from './temp/temp.component';
 import {CreatePostComponent} from './create-post/create-post.component';
 import {AuthGuard} from './auth.guard';
+import {AdminPanelComponent} from './admin-panel/admin-panel.component';
 
 const appRoutes: Routes = [
   {path: '', component: PostComponent},
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
     ]
   },
   {path: 'create', component: CreatePostComponent, canActivate: [AuthGuard]},
+  {path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 

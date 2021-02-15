@@ -1,0 +1,23 @@
+<div class="container profile-section">
+
+  <div class="row text-end">
+    <h4>Profile:</h4>
+  </div>
+  <div class="row">
+    <div class="col-5 text-center">
+      <img src="https://gradiantenergyservices.com/wp-content/uploads/2016/11/placeholder-avatar.jpg" alt="">
+    </div>
+    <div class="col-7">
+      <div class="user-info">
+        <p>Login: {{ login }}</p>
+        <p>UserName: {{ userName }}</p>
+      </div>
+    </div>
+    <div class="col">
+      <button class="btn btn-info float-end" (click)="logOut()">Log Out</button>
+      <button class="btn btn-info " routerLink="admin">Admin panel</button>
+    </div>
+
+  </div>
+  <br>
+</div>
