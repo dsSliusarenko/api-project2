@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://ngx-training.com'
+  apiUrl: 'https://ngx-training.com',
 };
 
 /*

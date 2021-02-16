@@ -8,7 +8,7 @@ import { AuthorizationSectionComponent } from './autorization-section/authorizat
 import { PostSectionComponent } from './post-section/post-section.component';
 import { ListSectionComponent } from './list-section/list-section.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AllPostsComponent } from './all-posts/all-posts.component';
@@ -19,6 +19,7 @@ import {CreatePostComponent} from './create-post/create-post.component';
 import {ProfileComponent} from './autorization-section/profile-section/profile.component';
 import {SpinnerComponent} from './shared/spinner.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +37,15 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     CreatePostComponent,
     ProfileComponent,
     SpinnerComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

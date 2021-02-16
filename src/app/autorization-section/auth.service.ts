@@ -1,14 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AuthInterface} from './auth.interface';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
+import {FormControl, Validators} from '@angular/forms';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
   private apiUrl: string = environment.apiUrl + '/auth/local';
+  private registrationPath: string = environment.apiUrl + '/auth/local/register';
   currentUserSubject: BehaviorSubject<AuthInterface>;
   isAuth = false;
 
@@ -21,6 +23,7 @@ export class AuthService {
     return this.currentUserSubject.value !== null;
   }
 
+  // login
   signIn(email: string, password: string): void {
     this.http.post<AuthInterface>(
       this.apiUrl,
@@ -38,6 +41,17 @@ export class AuthService {
     });
   }
 
+  // registration
+  registration(email: string, username: string, password: string): Observable<AuthInterface> {
+    return this.http.post<AuthInterface>(this.registrationPath,
+      {
+        email,
+        username,
+        password,
+      }
+    );
+  }
+
   signOut(): void {
     localStorage.removeItem('currentUser');
     this.isAuth = false;
@@ -48,6 +62,7 @@ export class AuthService {
   getUserLogin(): string {
     return JSON.parse(localStorage.getItem('currentUser')).user.email;
   }
+
   getUserName(): string {
     return JSON.parse(localStorage.getItem('currentUser')).user.username;
   }

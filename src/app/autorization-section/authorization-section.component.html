@@ -60,11 +60,13 @@
         ngModel
         name="password"
         required
-        minlength="15"
+        minlength="7"
       >
     </div>
+    <pre>{{ authForm.errors }}</pre>
     <br>
-    <button class="btn btn-info float-end" type="submit" [disabled]="authForm.invalid">{{ 'Log In' }}</button>
+    <button class="btn btn-info float-end" type="submit" [disabled]="authForm.invalid">Log In</button>
+    <button class="btn btn-info float-start" type="button" routerLink="/registration">Registration</button>
 
   </form>
 </div>
