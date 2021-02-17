@@ -4,7 +4,6 @@ import {AuthInterface} from './auth.interface';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
-import {FormControl, Validators} from '@angular/forms';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
@@ -34,10 +33,6 @@ export class AuthService {
     ).subscribe(currentUser => {
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
       this.currentUserSubject.next(currentUser);
-      // TODO: hint task 4
-      // if (currentUser.jwt) {
-      //   this.router.navigate(['/create']);
-      // }
     });
   }
 

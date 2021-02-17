@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MyValidators} from './My.validators';
 import {AuthService} from '../autorization-section/auth.service';
@@ -14,10 +14,22 @@ export class RegistrationComponent implements OnInit {
   isRegistered = false;
   errors: any[];
 
+  isPasswordVisible = false;
+  isConfirmPasswordVisible = false;
+
+  percentageOfFillProgress = 0;
+
+  emailFill = 0;
+  usernameFill = 0;
+  passwordFill = 0;
+  confirmPassFill = 0;
+
+  // @ViewChild('passwordField', {static: false}) passwordField: ElementRef<HTMLInputElement>;
+
   constructor(private authService: AuthService, private router: Router) {
   }
 
-  // form builder in docs
+  // read about form builder in angular docs
   ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl('', [
@@ -40,6 +52,10 @@ export class RegistrationComponent implements OnInit {
 
     });
   }
+
+  // ngAfterViewInit() {
+  //   console.log(this.passwordField.nativeElement.type);
+  // }
 
 
   submit(): void {
@@ -68,7 +84,53 @@ export class RegistrationComponent implements OnInit {
     this.form.reset();
   }
 
-  getErrorFromArray(errorMessage: any): any[]{
+  getErrorFromArray(errorMessage: any): any[] {
     return errorMessage.shift().messages;
+  }
+
+  // @ViewChild
+  changePassVisible(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+    // console.log(this.passwordField.nativeElement.type);
+  }
+
+  changeConfirmPassVisible(): void {
+    this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible;
+  }
+
+  // emailFill = 0;
+  // usernameFill = 0;
+  // passwordFill = 0;
+  // confirmPassFill = 0;
+
+  changeValueProgressBar(element: any): void {
+
+    console.log(element);
+
+    if (this.form.get('email').invalid === true) {
+      console.log('invalid is true');
+      this.emailFill = 0;
+      // if (th)
+      // this.percentageOfFillProgress = this.percentageOfFillProgress - 25;
+      this.calculate(this.emailFill);
+    } else {
+      if (this.emailFill === 0) {
+        console.log('Y-haaaaaaaaa!');
+        // this.percentageOfFillProgress = this.percentageOfFillProgress + 25;
+        this.emailFill = +1;
+        console.log(this.emailFill);
+        this.calculate(this.emailFill);
+      }
+    }
+
+
+  }
+
+  calculate(email): void {
+    if (email === 1) {
+      this.percentageOfFillProgress = this.percentageOfFillProgress + 25;
+    } else {
+      this.percentageOfFillProgress = this.percentageOfFillProgress - 25;
+    }
   }
 }

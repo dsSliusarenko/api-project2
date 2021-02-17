@@ -9,6 +9,7 @@ import {CreatePostComponent} from './create-post/create-post.component';
 import {AuthGuard} from './auth.guard';
 import {AdminPanelComponent} from './admin-panel/admin-panel.component';
 import {RegistrationComponent} from './registration/registration.component';
+import {RegistrationGuard} from './registration.guard';
 
 const appRoutes: Routes = [
   {path: '', component: PostComponent},
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   },
   {path: 'create', component: CreatePostComponent, canActivate: [AuthGuard]},
   {path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard]},
-  {path: 'registration', component: RegistrationComponent},
+  {path: 'registration', component: RegistrationComponent, canActivate: [RegistrationGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 

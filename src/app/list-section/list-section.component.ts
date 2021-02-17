@@ -9,14 +9,13 @@ import {Observable} from 'rxjs';
   styleUrls: ['./list-section.component.css'],
   providers: [HandlingPostService]
 })
+
 export class ListSectionComponent implements OnInit {
 
   @Output() sendPostEvent = new EventEmitter();
 
   selectItem: number;
   numberOfDefaultPosts = [1, 2, 3, 4, 5, 6, 7];
-
-  // disableSeeAllPostsButton = true;
 
   posts$: Observable<Post[]>;
 
@@ -27,13 +26,8 @@ export class ListSectionComponent implements OnInit {
     this.posts$ = this.handlingPostService.getPosts();
   }
 
-
   getClickEvent(post: Post): void {
     this.sendPostEvent.emit(post);
   }
-
-  // checkSelectPost(): void {
-  //   this.disableSeeAllPostsButton = false;
-  // }
 
 }

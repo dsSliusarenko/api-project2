@@ -1,146 +1,124 @@
 <div class="container d-flex justify-content-center">
-
   <div
     *ngIf="!isRegistered; else Congratulation"
     class="reg-container shadow">
     <form class="reg-form" [formGroup]="form" (ngSubmit)="submit()">
-
       <div class="col text-center">
-
         <h3>Registration form</h3>
-        <br>
-
         <div class="input-group flex-nowrap">
               <span class="input-group-text">
                   <img class="auth-image" src="./assets/images/email.svg">
               </span>
-          <input
-            type="text"
-            class="form-control"
-            id="email"
-            placeholder="Email"
-            required="required"
-            autocomplete="off"
-            formControlName="email">
+          <input type="text"
+                 class="form-control"
+                 id="email"
+                 placeholder="Email"
+                 required="required"
+                 autocomplete="off"
+                 formControlName="email"
+                 (focusout)="changeValueProgressBar(element)"
+                 #element>
         </div>
-
-        <div
-          *ngIf="form.get('email').invalid && form.get('email').touched"
-          class="validation"
-        >
+        <div *ngIf="form.get('email').invalid && form.get('email').touched"
+             class="validation">
           <small *ngIf="form.get('email').errors.email">
-            Your e-mail is not correct!</small>
-
+            Your e-mail is not correct!
+          </small>
           <small *ngIf="form.get('email').errors.required">
             Field "E-mail" cannot be empty!
           </small>
-
         </div>
-
         <br>
-
         <div class="input-group flex-nowrap">
               <span class="input-group-text">
                   <img class="auth-image" src="./assets/images/user.svg">
               </span>
-          <input
-            type="text"
-            class="form-control"
-            id="username"
-            placeholder="Username"
-            required="required"
-            autocomplete="off"
-            formControlName="username">
+          <input type="text"
+                 class="form-control"
+                 id="username"
+                 placeholder="Username"
+                 required="required"
+                 autocomplete="off"
+                 formControlName="username">
         </div>
-
-        <div
-          *ngIf="form.get('username').invalid && form.get('username').touched"
-          class="validation"
-        >
-
+        <div *ngIf="form.get('username').invalid && form.get('username').touched"
+             class="validation">
           <small *ngIf="form.get('username').errors.required">
             Field "Username" cannot be empty!
           </small>
-
           <small *ngIf="form.get('username').errors.minlength">
             Min username length: 3
           </small>
-
         </div>
-
         <br>
-
         <div class="passwords" formGroupName="passwords">
-
           <div class="input-group flex-nowrap">
               <span class="input-group-text">
-                  <img class="auth-image" src="./assets/images/lock.svg">
+                <img class="auth-image" src="./assets/images/lock.svg">
               </span>
-            <input
-              type="password"
-              class="form-control"
-              placeholder="Password"
-              required="required"
-              autocomplete="off"
-              formControlName="password">
+            <input [type]="isPasswordVisible ? 'text' : 'password'"
+                   class="form-control"
+                   id="password-field"
+                   placeholder="Password"
+                   required="required"
+                   autocomplete="off"
+                   formControlName="password"
+                   #passwordField>
+            <span class="input-group-text password-icon" (click)="changePassVisible()">
+                <img class="eye-image" src="./assets/images/eye.svg">
+            </span>
           </div>
-
-          <div
-            *ngIf="form.get('passwords').get('password').invalid && form.get('passwords').get('password').touched"
-            class="validation"
-          >
+          <div *ngIf="form.get('passwords').get('password').invalid && form.get('passwords').get('password').touched"
+               class="validation">
             <small *ngIf="form.get('passwords').get('password').errors.required">
               Field "Password" cannot be empty!
             </small>
-
             <small *ngIf="form.get('passwords').get('password').errors.minlength">
               Min password length: 7
             </small>
           </div>
           <br>
-
           <div class="input-group flex-nowrap">
               <span class="input-group-text">
                   <img class="auth-image" src="./assets/images/refresh-lock.svg">
               </span>
-            <input
-              type="password"
-              class="form-control"
-              placeholder="Confirm Password"
-              required="required"
-              autocomplete="off"
-              formControlName="confirmPass">
+            <input [type]="isConfirmPasswordVisible ? 'text' : 'password'"
+                   class="form-control"
+                   placeholder="Confirm Password"
+                   required="required"
+                   autocomplete="off"
+                   formControlName="confirmPass">
+            <span class="input-group-text password-icon" (click)="changeConfirmPassVisible()">
+                <img class="eye-image" src="./assets/images/eye.svg">
+            </span>
           </div>
           <div
             *ngIf="form.get('passwords').get('confirmPass').touched"
-            class="validation"
-          >
-
+            class="validation">
             <small *ngIf="form.get('passwords').errors?.confirmPass">
               Passwords are not same!
             </small>
-
           </div>
-
         </div>
-
         <div
           *ngFor="let error of errors"
-          class="error-message"
-        >
+          class="error-message">
           Sorry, but occurs some problem:
-
           <p>{{ error.message }}</p>
         </div>
-
-        <br>
-
+        <div class="progress">
+          <div class="progress-bar"
+               role="progressbar"
+               style="width:{{ percentageOfFillProgress }}%;"
+               aria-valuenow="{{ percentageOfFillProgress }}"
+               aria-valuemin="0"
+               aria-valuemax="100">
+            {{ percentageOfFillProgress }}%
+          </div>
+        </div>
         <button class="btn btn-info float-end" type="submit" [disabled]="form.invalid">Registration</button>
         <button class="btn btn-secondary float-start" type="button" (click)="clearForm()">Clear</button>
-
       </div>
-
-
     </form>
   </div>
 
@@ -152,6 +130,4 @@
       </h4>
     </div>
   </ng-template>
-
-
 </div>
