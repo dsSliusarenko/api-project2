@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MyValidators} from './My.validators';
 import {AuthService} from '../autorization-section/auth.service';
@@ -19,6 +19,7 @@ export class RegistrationComponent implements OnInit {
 
   percentageOfFillProgress = 0;
 
+  // field = 'email';
   emailFill = 0;
   usernameFill = 0;
   passwordFill = 0;
@@ -51,7 +52,16 @@ export class RegistrationComponent implements OnInit {
       }, {validators: MyValidators.confirmPass})
 
     });
-  }
+
+    this.form.statusChanges.subscribe(value => {
+    });
+
+    //   if (this.form.get('email').valid || this.form.get('username').valid) {
+    //     console.log('some field is valid');
+    //     this.percentageOfFillProgress = +25;
+    //   }
+    // });
+}
 
   // ngAfterViewInit() {
   //   console.log(this.passwordField.nativeElement.type);
@@ -98,39 +108,68 @@ export class RegistrationComponent implements OnInit {
     this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible;
   }
 
-  // emailFill = 0;
-  // usernameFill = 0;
-  // passwordFill = 0;
-  // confirmPassFill = 0;
+  // changeValueProgressBar(emailElement: any): void {
+  //
+  //   console.log(emailElement);
+  //
+  //   if (this.form.get('email').invalid) {
+  //     // console.log('invalid is true');
+  //     // this.emailFill = 0;
+  //     // if (th)
+  //     // this.calculate(this.emailFill);
+  //     // console.log(this.percentageOfFillProgress);
+  //   } else {
+  //     if (this.emailFill === 0) {
+  //       // console.log('Y-haaaaaaaaa!');
+  //       this.emailFill = +1;
+  //       this.calculate(this.emailFill);
+  //       // console.log(this.percentageOfFillProgress);
+  //     }
+  //   }
+  // }
 
-  changeValueProgressBar(element: any): void {
+  // calculate(emailFill): void {
+  //   if (emailFill === 1) {
+  //     this.percentageOfFillProgress = this.percentageOfFillProgress + 25;
+  //   } else {
+  //     this.percentageOfFillProgress = this.percentageOfFillProgress - 25;
+  //   }
+  // }
 
-    console.log(element);
+  changeValueProgressBar(): void {
 
-    if (this.form.get('email').invalid === true) {
-      console.log('invalid is true');
-      this.emailFill = 0;
-      // if (th)
-      // this.percentageOfFillProgress = this.percentageOfFillProgress - 25;
-      this.calculate(this.emailFill);
-    } else {
-      if (this.emailFill === 0) {
-        console.log('Y-haaaaaaaaa!');
-        // this.percentageOfFillProgress = this.percentageOfFillProgress + 25;
-        this.emailFill = +1;
-        console.log(this.emailFill);
-        this.calculate(this.emailFill);
-      }
-    }
+    //   switch () {
+    //     case 'email' === field:
+    //       console.log('email');
+    //       break;
+    //     case 'username':
+    //       console.log('username');
+    //       break;
+    //     case 'password':
+    //       console.log('password');
+    //       break;
+    //     case 'confirmPass':
+    //       console.log('confirmPass');
+    //       break;
+    //   }
+    // }
 
-
-  }
-
-  calculate(email): void {
-    if (email === 1) {
-      this.percentageOfFillProgress = this.percentageOfFillProgress + 25;
-    } else {
-      this.percentageOfFillProgress = this.percentageOfFillProgress - 25;
-    }
+    // changeValueProgressBarSECOND(emailElement: any, passwordElement: any): void {
+    //
+    //   switch (emailElement.class) {
+    //     case 'email' === :
+    //       console.log('email');
+    //       break;
+    //     case 'username':
+    //       console.log('username');
+    //       break;
+    //     case 'password':
+    //       console.log('password');
+    //       break;
+    //     case 'confirmPass':
+    //       console.log('confirmPass');
+    //       break;
+    //   }
+    // }
   }
 }

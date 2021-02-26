@@ -4,7 +4,7 @@
     class="reg-container shadow">
     <form class="reg-form" [formGroup]="form" (ngSubmit)="submit()">
       <div class="col text-center">
-        <h3>Registration form</h3>
+        <h3>REGISTRATION FORM</h3>
         <div class="input-group flex-nowrap">
               <span class="input-group-text">
                   <img class="auth-image" src="./assets/images/email.svg">
@@ -15,9 +15,7 @@
                  placeholder="Email"
                  required="required"
                  autocomplete="off"
-                 formControlName="email"
-                 (focusout)="changeValueProgressBar(element)"
-                 #element>
+                 formControlName="email">
         </div>
         <div *ngIf="form.get('email').invalid && form.get('email').touched"
              class="validation">
@@ -63,7 +61,7 @@
                    required="required"
                    autocomplete="off"
                    formControlName="password"
-                   #passwordField>
+                   >
             <span class="input-group-text password-icon" (click)="changePassVisible()">
                 <img class="eye-image" src="./assets/images/eye.svg">
             </span>

@@ -15,11 +15,13 @@ import { AllPostsComponent } from './all-posts/all-posts.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { TempComponent } from './temp/temp.component';
 import { FooterComponent } from './footer/footer.component';
-import {CreatePostComponent} from './create-post/create-post.component';
+import {CreatePostComponent} from './admin-panel/create-post/create-post.component';
 import {ProfileComponent} from './autorization-section/profile-section/profile.component';
 import {SpinnerComponent} from './shared/spinner.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { UsersComponent } from './admin-panel/users/users.component';
+import { DashboardComponent } from './admin-panel/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { RegistrationComponent } from './registration/registration.component';
     ProfileComponent,
     SpinnerComponent,
     AdminPanelComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UsersComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

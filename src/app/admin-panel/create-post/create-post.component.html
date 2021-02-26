@@ -1,0 +1,41 @@
+<div class="text-center">
+  <h4>Create Post</h4>
+</div>
+<div class="d-flex justify-content-center">
+  <div class="create-post-container">
+    <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-6">
+          <label for="title">Title:</label>
+          <input type="text"
+                 id="title"
+                 class="form-control"
+                 placeholder="My post:"
+                 formControlName="title">
+        </div>
+        <div class="col-6">
+          <label for="image">Image:</label>
+          <input type="text"
+                 id="image"
+                 class="form-control"
+                 placeholder="link on image for my post:"
+                 formControlName="image">
+        </div>
+      </div>
+      <label for="description">Description:</label>
+      <input type="text"
+             id="description"
+             class="form-control"
+             placeholder="Here is description my post:"
+             formControlName="description">
+      <label for="content">Content:</label>
+      <textarea class="form-control"
+                id="content"
+                rows="4"
+                placeholder="Content for my first post:"
+                formControlName="content">
+      </textarea>
+      <button class="btn btn-info float-end" type="submit" [disabled]="form.invalid">Create</button>
+    </form>
+  </div>
+</div>

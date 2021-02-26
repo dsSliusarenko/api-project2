@@ -5,11 +5,13 @@ import {PostComponent} from './post/post.component';
 import {AllPostsComponent} from './all-posts/all-posts.component';
 import {SinglePostComponent} from './single-post/single-post.component';
 import {TempComponent} from './temp/temp.component';
-import {CreatePostComponent} from './create-post/create-post.component';
+import {CreatePostComponent} from './admin-panel/create-post/create-post.component';
 import {AuthGuard} from './auth.guard';
 import {AdminPanelComponent} from './admin-panel/admin-panel.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationGuard} from './registration.guard';
+import {UsersComponent} from './admin-panel/users/users.component';
+import {DashboardComponent} from './admin-panel/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   {path: '', component: PostComponent},
@@ -21,8 +23,17 @@ const appRoutes: Routes = [
       {path: ':id', component: SinglePostComponent}
     ]
   },
-  {path: 'create', component: CreatePostComponent, canActivate: [AuthGuard]},
-  {path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard]},
+  // {path: 'create', component: CreatePostComponent, canActivate: [AuthGuard]},
+  {
+    path: 'admin',
+    component: AdminPanelComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {path: 'create', component: CreatePostComponent},
+      {path: 'users', component: UsersComponent},
+      {path: 'dashboard', component: DashboardComponent}
+    ]
+  },
   {path: 'registration', component: RegistrationComponent, canActivate: [RegistrationGuard]},
   {path: '**', component: NotFoundComponent}
 ];

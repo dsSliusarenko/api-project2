@@ -121,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "api-project"
+  "defaultProject": "api-project",
+  "cli": {
+    "analytics": false
+  }
 }
