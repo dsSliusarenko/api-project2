@@ -12,6 +12,7 @@ import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationGuard} from './registration.guard';
 import {UsersComponent} from './admin-panel/users/users.component';
 import {DashboardComponent} from './admin-panel/dashboard/dashboard.component';
+import {PostTableComponent} from './admin-panel/post-table/post-table.component';
 
 const appRoutes: Routes = [
   {path: '', component: PostComponent},
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'create', component: CreatePostComponent},
+      {path: 'posts', component: PostTableComponent},
       {path: 'users', component: UsersComponent},
       {path: 'dashboard', component: DashboardComponent}
     ]

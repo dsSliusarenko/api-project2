@@ -22,6 +22,11 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { UsersComponent } from './admin-panel/users/users.component';
 import { DashboardComponent } from './admin-panel/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PostTableComponent } from './admin-panel/post-table/post-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -42,14 +47,19 @@ import { DashboardComponent } from './admin-panel/dashboard/dashboard.component'
     AdminPanelComponent,
     RegistrationComponent,
     UsersComponent,
-    DashboardComponent
+    DashboardComponent,
+    PostTableComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
