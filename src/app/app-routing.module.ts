@@ -30,8 +30,14 @@ const appRoutes: Routes = [
     component: AdminPanelComponent,
     canActivate: [AuthGuard],
     children: [
-      {path: 'create', component: CreatePostComponent},
-      {path: 'posts', component: PostTableComponent},
+      {
+        path: 'posts',
+        component: TempComponent,
+        children: [
+          {path: '', component: PostTableComponent},
+          {path: 'create', component: CreatePostComponent},
+        ]
+      },
       {path: 'users', component: UsersComponent},
       {path: 'dashboard', component: DashboardComponent}
     ]

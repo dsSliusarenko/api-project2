@@ -1,3 +1,11 @@
-.full-width-table {
+table {
   width: 100%;
+}
+
+.mat-column-content{
+  width: 28% !important;
+}
+
+.mat-row:hover {
+  background-color: #0dcaf0;
 }

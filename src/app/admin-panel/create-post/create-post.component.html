@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h4>Create Post</h4>
+  <h3>Create Post</h3>
 </div>
 <div class="d-flex justify-content-center">
   <div class="create-post-container">
@@ -35,7 +35,14 @@
                 placeholder="Content for my first post:"
                 formControlName="content">
       </textarea>
-      <button class="btn btn-info float-end" type="submit" [disabled]="form.invalid">Create</button>
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-info" routerLink="/admin/posts">Back</button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-info float-end" type="submit" [disabled]="form.invalid">Create</button>
+        </div>
+      </div>
     </form>
   </div>
 </div>

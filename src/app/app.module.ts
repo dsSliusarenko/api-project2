@@ -27,6 +27,7 @@ import { PostTableComponent } from './admin-panel/post-table/post-table.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { TempComponentComponent } from './admin-panel/temp-component/temp-component.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MatSortModule } from '@angular/material/sort';
     UsersComponent,
     DashboardComponent,
     PostTableComponent,
+    TempComponentComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,30 +1,25 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { PostTableDataSource, PostTableItem } from './post-table-datasource';
+import {Component, OnInit} from '@angular/core';
+import {HandlingPostService} from '../../services/handling-post.service';
+import {Observable} from 'rxjs';
+import {Post} from '../../interfaces/post.interface';
 
+/**
+ * @title Basic use of `<table mat-table>`
+ */
 @Component({
   selector: 'app-post-table',
   templateUrl: './post-table.component.html',
   styleUrls: ['./post-table.component.css']
 })
-export class PostTableComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatTable) table: MatTable<PostTableItem>;
-  dataSource: PostTableDataSource;
-
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
-
-  ngOnInit() {
-    this.dataSource = new PostTableDataSource();
+export class PostTableComponent implements OnInit {
+  constructor(private handlingPostService: HandlingPostService) {
   }
 
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+  displayedColumns: string[] = ['id', 'image', 'title', 'description', 'content', 'created_at', 'updated_at'];
+  posts$: Observable<Post[]>;
+
+  ngOnInit(): void {
+    this.posts$ = this.handlingPostService.getPosts();
+    console.log(this.posts$);
   }
 }
