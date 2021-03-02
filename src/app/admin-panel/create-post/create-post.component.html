@@ -64,18 +64,24 @@
     </form>
     <div class="alert alert-info"
          role="alert"
-         *ngFor="let error of errors">
-      {{ error.message }}
+         *ngIf="errors">
+      <div class="alert-message"
+        *ngFor="let error of errors">
+        <h4>Sorry, but occurred some problem(s):
+          <br>
+          {{ error.message }}
+        </h4>
+      </div>
     </div>
   </div>
 
   <ng-template #Congratulation>
     <div class="congratulation-container shadow text-center">
       <div class="cong-text">
-      <h3>Congratulation!
-        <br>
-        Post added!
-      </h3>
+        <h3>Congratulation!
+          <br>
+          Post added!
+        </h3>
       </div>
     </div>
   </ng-template>

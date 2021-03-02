@@ -24,17 +24,26 @@ export class HandlingPostService {
     return this.http.get<Post>(url);
   }
 
+  // Send Post on server without interceptors
+  // sendPost(content: string,
+  //          description: string,
+  //          // image?: any,
+  //          title: string,
+  // ): Observable<any> {
+  //   const jwt = JSON.parse(localStorage.getItem('currentUser')).jwt;
+  //   return this.http.post(this.apiUrl, {content, description, title}, {
+  //     headers: new HttpHeaders({
+  //       Authorization: `Bearer ${jwt}`
+  //     })
+  //   });
+  // }
+
   sendPost(content: string,
            description: string,
            // image?: any,
            title: string,
   ): Observable<any> {
-    const jwt = JSON.parse(localStorage.getItem('currentUser')).jwt;
-    return this.http.post(this.apiUrl, {content, description, title}, {
-      headers: new HttpHeaders({
-        Authorization: `Bearer ${jwt}`
-      })
-    });
+    return this.http.post(this.apiUrl, {content, description, title});
   }
 
 }

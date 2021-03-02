@@ -15,7 +15,7 @@ export class PostTableComponent implements OnInit {
   constructor(private handlingPostService: HandlingPostService) {
   }
 
-  displayedColumns: string[] = ['id', 'image', 'title', 'description', 'content', 'created_at', 'updated_at'];
+  displayedColumns: string[] = ['id', 'image', 'title', 'description', 'created_at', 'updated_at'];
   posts$: Observable<Post[]>;
 
   ngOnInit(): void {

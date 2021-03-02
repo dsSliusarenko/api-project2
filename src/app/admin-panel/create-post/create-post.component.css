@@ -22,3 +22,9 @@
 .cong-text {
   margin-top: 7%;
 }
+
+.alert-message h4{
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
