@@ -1,8 +1,9 @@
 <div class="text-center">
-  <h3>Create Post</h3>
+  <h2>Create Post</h2>
 </div>
 <div class="d-flex justify-content-center">
-  <div class="create-post-container">
+  <div class="create-post-container"
+       *ngIf="!isPostCreated; else Congratulation">
     <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-6">
@@ -13,14 +14,21 @@
                  placeholder="My post:"
                  formControlName="title">
         </div>
-        <div class="col-6">
-          <label for="image">Image:</label>
-          <input type="text"
-                 id="image"
-                 class="form-control"
-                 placeholder="link on image for my post:"
-                 formControlName="image">
+        <div class="row validation">
+          <div class="col-6 d-flex justify-content-center">
+            <small *ngIf="form.get('title').invalid && form.get('title').touched">
+              Field Title cannot be empty!
+            </small>
+          </div>
         </div>
+        <!--        <div class="col-6">-->
+        <!--          <label for="image">Image:</label>-->
+        <!--          <input type="text"-->
+        <!--                 id="image"-->
+        <!--                 class="form-control"-->
+        <!--                 placeholder="link on image for my post:"-->
+        <!--                 formControlName="image">-->
+        <!--        </div>-->
       </div>
       <label for="description">Description:</label>
       <input type="text"
@@ -28,6 +36,11 @@
              class="form-control"
              placeholder="Here is description my post:"
              formControlName="description">
+      <div class="validation d-flex justify-content-center">
+        <small *ngIf="form.get('description').invalid && form.get('description').touched">
+          Field Description cannot be empty!
+        </small>
+      </div>
       <label for="content">Content:</label>
       <textarea class="form-control"
                 id="content"
@@ -35,6 +48,11 @@
                 placeholder="Content for my first post:"
                 formControlName="content">
       </textarea>
+      <div class="validation d-flex justify-content-center">
+        <small *ngIf="form.get('content').invalid && form.get('content').touched">
+          Field Content cannot be empty!
+        </small>
+      </div>
       <div class="row">
         <div class="col-6">
           <button class="btn btn-info" routerLink="/admin/posts">Back</button>
@@ -44,5 +62,21 @@
         </div>
       </div>
     </form>
+    <div class="alert alert-info"
+         role="alert"
+         *ngFor="let error of errors">
+      {{ error.message }}
+    </div>
   </div>
+
+  <ng-template #Congratulation>
+    <div class="congratulation-container shadow text-center">
+      <div class="cong-text">
+      <h3>Congratulation!
+        <br>
+        Post added!
+      </h3>
+      </div>
+    </div>
+  </ng-template>
 </div>

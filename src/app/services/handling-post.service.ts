@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Post} from '../interfaces/post.interface';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
@@ -22,6 +22,19 @@ export class HandlingPostService {
   getSinglePost(id: number): Observable<Post> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Post>(url);
+  }
+
+  sendPost(content: string,
+           description: string,
+           // image?: any,
+           title: string,
+  ): Observable<any> {
+    const jwt = JSON.parse(localStorage.getItem('currentUser')).jwt;
+    return this.http.post(this.apiUrl, {content, description, title}, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${jwt}`
+      })
+    });
   }
 
 }

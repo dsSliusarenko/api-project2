@@ -35,7 +35,7 @@ const appRoutes: Routes = [
         component: TempComponent,
         children: [
           {path: '', component: PostTableComponent},
-          {path: 'create', component: CreatePostComponent},
+          {path: 'new', component: CreatePostComponent},
         ]
       },
       {path: 'users', component: UsersComponent},

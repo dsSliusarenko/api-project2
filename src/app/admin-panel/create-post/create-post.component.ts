@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HandlingPostService} from '../../services/handling-post.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -8,8 +10,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class CreatePostComponent implements OnInit {
   form: FormGroup;
+  errors: any[];
+  isPostCreated = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private handlingPostService: HandlingPostService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -17,12 +21,19 @@ export class CreatePostComponent implements OnInit {
       title: ['', Validators.required],
       content: ['', Validators.required],
       description: ['', Validators.required],
-      image: ['', Validators.required],
+      // image: ['', Validators.required],
     });
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
+    this.handlingPostService.sendPost(this.form.value.content, this.form.value.description, this.form.value.title).subscribe(request => {
+      this.isPostCreated = true;
+      setTimeout(() => {
+        this.router.navigate(['/admin/posts']);
+      }, 3000);
+    }, error => {
+      this.errors.push(error);
+    });
   }
 
 }

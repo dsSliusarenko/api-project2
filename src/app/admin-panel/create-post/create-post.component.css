@@ -5,3 +5,20 @@
 .btn{
   margin-top: 20px;
 }
+
+.alert {
+  text-align: center;
+  margin-top: 20px;
+}
+/*input{*/
+/*  padding-top: 20px;*/
+/*}*/
+
+
+.congratulation-container{
+  width: 300px;
+}
+
+.cong-text {
+  margin-top: 7%;
+}
