@@ -2,10 +2,28 @@ table {
   width: 100%;
 }
 
-.mat-column-content{
-  width: 28% !important;
+.mat-row {
+  height: 50px;
+}
+
+.mat-column-action{
+  /*color: aqua;*/
+  width: 120px;
+  padding-left: 15px;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  text-align: center;
 }
 
 .mat-row:hover {
   background-color: #0dcaf0;
+}
+
+.action-image{
+  width: 30px;
+  border-radius: 0;
+}
+
+.action-image:hover{
+  width: 45px;
 }

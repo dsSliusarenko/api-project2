@@ -11,15 +11,19 @@ import {Post} from '../../interfaces/post.interface';
   templateUrl: './post-table.component.html',
   styleUrls: ['./post-table.component.css']
 })
-export class PostTableComponent implements OnInit {
-  constructor(private handlingPostService: HandlingPostService) {
+export class PostTableComponent implements OnInit{
+constructor(private handlingPostService: HandlingPostService) {
   }
 
-  displayedColumns: string[] = ['id', 'image', 'title', 'description', 'created_at', 'updated_at'];
+  displayedColumns: string[] = ['id', 'image', 'title', 'description', 'created_at', 'action'];
   posts$: Observable<Post[]>;
 
   ngOnInit(): void {
     this.posts$ = this.handlingPostService.getPosts();
     console.log(this.posts$);
+  }
+
+  showDeleteAlert() {
+    console.log('');
   }
 }
