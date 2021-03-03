@@ -20,9 +20,10 @@
 
       </ul>
 
-<!--      <form class="d-flex">-->
-<!--        <button class="btn btn-light" routerLink="/create">Create post</button>-->
-<!--      </form>-->
+      <form class="d-flex"
+      *ngIf="!isAuth">
+        <button class="btn btn-light" (click)="signOut()">Log out</button>
+      </form>
 
     </div>
 

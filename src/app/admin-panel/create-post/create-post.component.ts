@@ -11,7 +11,6 @@ import {Router} from '@angular/router';
 export class CreatePostComponent implements OnInit {
   form: FormGroup;
   errors: any[] = [];
-  // errors: any[];
   isPostCreated = false;
 
   constructor(private formBuilder: FormBuilder, private handlingPostService: HandlingPostService, private router: Router) {
@@ -37,16 +36,4 @@ export class CreatePostComponent implements OnInit {
       this.errors.push(error);
     });
   }
-
-  // onSubmit(): void {
-  //   this.handlingPostService.sendPost(this.form.value.content, this.form.value.description, this.form.value.title).subscribe(request => {
-  //     this.isPostCreated = true;
-  //     setTimeout(() => {
-  //       this.router.navigate(['/admin/posts']);
-  //     }, 3000);
-  //   }, error => {
-  //     this.errors.push(error);
-  //   });
-  // }
-
 }

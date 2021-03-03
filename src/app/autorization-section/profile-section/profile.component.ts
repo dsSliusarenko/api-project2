@@ -8,7 +8,7 @@ import {AuthService} from '../auth.service';
 })
 
 export class ProfileComponent {
-
+  //
   login;
   userName;
 
@@ -17,7 +17,7 @@ export class ProfileComponent {
     this.userName = authService.getUserName();
   }
 
-  logOut(): void {
-    this.authService.signOut();
-  }
+  // logOut(): void {
+  //   this.authService.signOut();
+  // }
 }

@@ -64,7 +64,7 @@
     </form>
     <div class="alert alert-info"
          role="alert"
-         *ngIf="errors">
+         *ngIf="errors.length >= 1">
       <div class="alert-message"
         *ngFor="let error of errors">
         <h4>Sorry, but occurred some problem(s):

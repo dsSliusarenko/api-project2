@@ -29,6 +29,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {TempComponentComponent} from './admin-panel/temp-component/temp-component.component';
 import {SendPostInterceptor} from './admin-panel/create-post/sendPost.interceptor';
+import {EditPostComponent} from './admin-panel/edit-post/edit-post.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -58,6 +59,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     DashboardComponent,
     PostTableComponent,
     TempComponentComponent,
+    EditPostComponent,
   ],
   imports: [
     BrowserModule,

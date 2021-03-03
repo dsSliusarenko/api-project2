@@ -18,8 +18,11 @@
 
     <ng-container matColumnDef="image">
       <th mat-header-cell *matHeaderCellDef> Image</th>
-      <td mat-cell *matCellDef="let element"> {{element.image}} </td>
+      <td mat-cell *matCellDef="let element">
+        <img class="action-image" src="https://ngx-training.com{{element?.image.formats.small.url}}" *ngIf="element.image">
+      </td>
     </ng-container>
+
 
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Title</th>
@@ -47,9 +50,10 @@
         <div class="">
 
 
-        <img class="action-image" src="./assets/images/edit.svg" routerLink="/posts/+{{element.id}}">
+          <img class="action-image" src="./assets/images/edit.svg" routerLink="/posts/+{{element.id}}">
           <small></small>
         <img class="action-image"
+             routerLink="/admin/posts/edit"
              src="./assets/images/trash.svg"
              (click)="showDeleteAlert()">
         </div>

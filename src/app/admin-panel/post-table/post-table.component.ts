@@ -20,7 +20,6 @@ constructor(private handlingPostService: HandlingPostService) {
 
   ngOnInit(): void {
     this.posts$ = this.handlingPostService.getPosts();
-    console.log(this.posts$);
   }
 
   showDeleteAlert() {

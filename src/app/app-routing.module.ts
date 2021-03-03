@@ -13,6 +13,7 @@ import {RegistrationGuard} from './registration.guard';
 import {UsersComponent} from './admin-panel/users/users.component';
 import {DashboardComponent} from './admin-panel/dashboard/dashboard.component';
 import {PostTableComponent} from './admin-panel/post-table/post-table.component';
+import {EditPostComponent} from './admin-panel/edit-post/edit-post.component';
 
 const appRoutes: Routes = [
   {path: '', component: PostComponent},
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
         children: [
           {path: '', component: PostTableComponent},
           {path: 'new', component: CreatePostComponent},
+          {path: 'edit', component: EditPostComponent},
         ]
       },
       {path: 'users', component: UsersComponent},
