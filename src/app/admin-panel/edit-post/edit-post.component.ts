@@ -49,7 +49,7 @@ export class EditPostComponent implements OnInit {
     });
   }
 
-  showAlert(): void {
+  showExitAlert(): void {
     if (this.form.touched) {
       const dialogRef = this.dialog.open(ExitWithoutSaveComponent);
       dialogRef.afterClosed().subscribe(() => {

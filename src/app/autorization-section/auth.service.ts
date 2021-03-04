@@ -32,6 +32,7 @@ export class AuthService {
       }
     ).subscribe(currentUser => {
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      localStorage.setItem('isUserAuth', JSON.stringify(true));
       this.currentUserSubject.next(currentUser);
     });
   }
@@ -48,7 +49,8 @@ export class AuthService {
   }
 
   signOut(): void {
-    localStorage.removeItem('currentUser');
+    // localStorage.removeItem('currentUser');
+    localStorage.clear();
     this.isAuth = false;
     this.currentUserSubject.next(null);
     this.router.navigate(['/']);

@@ -21,7 +21,7 @@
       </ul>
 
       <form class="d-flex"
-      *ngIf="!isAuth">
+      *ngIf="isUserAuth| async">
         <button class="btn btn-light" (click)="signOut()">Log out</button>
       </form>
 
