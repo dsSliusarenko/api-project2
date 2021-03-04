@@ -34,7 +34,14 @@ export class EditPostComponent implements OnInit {
   }
 
   onSubmit(): void {
+    // important dont forget subscribe on stream, which will provided by handlingPostService
     console.log(this.form.value);
+    this.handlingPostService.editPost(this.numberOfEditPost, this.form.value).subscribe(() => {
+      // console.log(resp);
+      this.router.navigate(['/admin/posts']);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

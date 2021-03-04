@@ -23,12 +23,12 @@ export class PostTableComponent implements OnInit {
     this.posts$ = this.handlingPostService.getPosts();
   }
 
-  showDeleteAlert() {
-    console.log('');
-  }
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog);
 
   editPost(id: number): void {
     localStorage.setItem('numberOfEditPost', JSON.stringify(id));
     this.router.navigate(['/admin/posts/edit']);
   }
+
 }

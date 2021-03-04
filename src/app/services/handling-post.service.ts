@@ -11,6 +11,7 @@ import {environment} from '../../environments/environment';
 export class HandlingPostService {
 
   private apiUrl: string = environment.apiUrl + '/posts';
+  private apiUrlPost;
 
   constructor(private http: HttpClient) {
   }
@@ -28,11 +29,14 @@ export class HandlingPostService {
            description: string,
            // image?: any,
            title: string,
-  ): Observable<any> {
-    return this.http.post(this.apiUrl, {content, description, title});
+  ): Observable<Post[]> {
+    return this.http.post<Post[]>(this.apiUrl, {content, description, title});
   }
 
-  editPost(): void {
-
+  // attention to this.api. Because it can take certain path, like .../posts/id => posts/4
+  editPost(id: number, body: Post): Observable<Post[]> {
+    // console.log(this.apiUrlPost);
+    this.apiUrlPost = this.apiUrl + '/' + id;
+    return this.http.put<Post[]>(this.apiUrlPost, body);
   }
 }
