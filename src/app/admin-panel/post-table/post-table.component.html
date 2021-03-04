@@ -50,10 +50,10 @@
         <div class="">
 
 
-          <img class="action-image" src="./assets/images/edit.svg" routerLink="/posts/+{{element.id}}">
+          <img class="action-image" src="./assets/images/edit.svg" (click)="editPost(element.id)">
           <small></small>
         <img class="action-image"
-             routerLink="/admin/posts/edit"
+
              src="./assets/images/trash.svg"
              (click)="showDeleteAlert()">
         </div>

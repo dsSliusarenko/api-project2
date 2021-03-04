@@ -32,4 +32,7 @@ export class HandlingPostService {
     return this.http.post(this.apiUrl, {content, description, title});
   }
 
+  editPost(): void {
+
+  }
 }

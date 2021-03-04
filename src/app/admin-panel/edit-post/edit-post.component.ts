@@ -15,7 +15,10 @@ export class EditPostComponent implements OnInit {
   errors: any[] = [];
   isPostEdited = false;
 
+  numberOfEditPost;
+
   constructor(private formBuilder: FormBuilder, private handlingPostService: HandlingPostService, private router: Router) {
+    this.numberOfEditPost = JSON.parse(localStorage.getItem('numberOfEditPost'));
     this.form = this.formBuilder.group({
       title: ['', Validators.required],
       content: ['', Validators.required],
@@ -25,13 +28,13 @@ export class EditPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.handlingPostService.getSinglePost(3).subscribe(value => {
+    this.handlingPostService.getSinglePost(this.numberOfEditPost).subscribe(value => {
       this.form.patchValue(value);
     });
   }
 
   onSubmit(): void {
-    // console.log(this.form.value);
+    console.log(this.form.value);
   }
 
 }
