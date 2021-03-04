@@ -34,7 +34,6 @@ export class HandlingPostService {
   }
 
   editPost(id: number, body: Post): Observable<Post[]> {
-    // console.log(this.apiUrlPost);
     this.apiUrlPost = this.apiUrl + '/' + id;
     return this.http.put<Post[]>(this.apiUrlPost, body);
   }

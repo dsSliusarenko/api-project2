@@ -55,7 +55,7 @@
       </div>
       <div class="row">
         <div class="col-6">
-          <button class="btn btn-info" routerLink="/admin/posts">Back</button>
+          <button class="btn btn-info" type="button" (click)="showAlert()">Back</button>
         </div>
         <div class="col-6">
           <button class="btn btn-info float-end" type="submit" [disabled]="form.invalid">Edit</button>

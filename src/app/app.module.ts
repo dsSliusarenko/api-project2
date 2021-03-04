@@ -33,6 +33,7 @@ import {EditPostComponent} from './admin-panel/edit-post/edit-post.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { DialogContentExampleDialogComponent } from './dialog-content-example-dialog/dialog-content-example-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ExitWithoutSaveComponent } from './dialogs/exit-without-save/exit-without-save.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -64,6 +65,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     TempComponentComponent,
     EditPostComponent,
     DialogContentExampleDialogComponent,
+    ExitWithoutSaveComponent,
   ],
   imports: [
     BrowserModule,

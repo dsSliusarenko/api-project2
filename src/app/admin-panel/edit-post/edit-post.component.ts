@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HandlingPostService} from '../../services/handling-post.service';
 
 import {Router} from '@angular/router';
+import {ExitWithoutSaveComponent} from '../../dialogs/exit-without-save/exit-without-save.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-post',
@@ -17,7 +19,10 @@ export class EditPostComponent implements OnInit {
 
   numberOfEditPost;
 
-  constructor(private formBuilder: FormBuilder, private handlingPostService: HandlingPostService, private router: Router) {
+  constructor(private formBuilder: FormBuilder,
+              private handlingPostService: HandlingPostService,
+              private router: Router,
+              public dialog: MatDialog) {
     this.numberOfEditPost = JSON.parse(localStorage.getItem('numberOfEditPost'));
     this.form = this.formBuilder.group({
       title: ['', Validators.required],
@@ -42,6 +47,16 @@ export class EditPostComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  showAlert(): void {
+    if (this.form.touched) {
+      const dialogRef = this.dialog.open(ExitWithoutSaveComponent);
+      dialogRef.afterClosed().subscribe(() => {
+      });
+    } else {
+      this.router.navigate(['/admin/posts']);
+    }
   }
 
 }
