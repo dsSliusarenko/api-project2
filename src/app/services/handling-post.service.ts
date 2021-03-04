@@ -33,7 +33,6 @@ export class HandlingPostService {
     return this.http.post<Post[]>(this.apiUrl, {content, description, title});
   }
 
-  // attention to this.api. Because it can take certain path, like .../posts/id => posts/4
   editPost(id: number, body: Post): Observable<Post[]> {
     // console.log(this.apiUrlPost);
     this.apiUrlPost = this.apiUrl + '/' + id;

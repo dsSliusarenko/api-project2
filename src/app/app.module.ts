@@ -31,6 +31,8 @@ import {TempComponentComponent} from './admin-panel/temp-component/temp-componen
 import {SendPostInterceptor} from './admin-panel/create-post/sendPost.interceptor';
 import {EditPostComponent} from './admin-panel/edit-post/edit-post.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { DialogContentExampleDialogComponent } from './dialog-content-example-dialog/dialog-content-example-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -61,19 +63,21 @@ const INTERCEPTOR_PROVIDER: Provider = {
     PostTableComponent,
     TempComponentComponent,
     EditPostComponent,
+    DialogContentExampleDialogComponent,
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        FormsModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatFormFieldModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatDialogModule
+  ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
