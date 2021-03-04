@@ -38,4 +38,9 @@ export class HandlingPostService {
     this.apiUrlPost = this.apiUrl + '/' + id;
     return this.http.put<Post[]>(this.apiUrlPost, body);
   }
+
+  deletePost(id: number): Observable<Post[]> {
+    this.apiUrlPost = this.apiUrl + '/' + id;
+    return this.http.delete<Post[]>(this.apiUrlPost);
+  }
 }

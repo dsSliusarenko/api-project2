@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PostTableComponent} from '../admin-panel/post-table/post-table.component';
+import {HandlingPostService} from '../services/handling-post.service';
 
 @Component({
   selector: 'app-dialog-content-example-dialog',
@@ -8,8 +9,9 @@ import {PostTableComponent} from '../admin-panel/post-table/post-table.component
 })
 export class DialogContentExampleDialogComponent implements OnInit {
   numberSelectedPostToDelete;
+  isDeleted = false;
 
-  constructor() {
+  constructor(private handlingPostService: HandlingPostService) {
     this.numberSelectedPostToDelete = JSON.parse(localStorage.getItem('numberSelectedPostToDelete'));
   }
 
@@ -17,6 +19,11 @@ export class DialogContentExampleDialogComponent implements OnInit {
   }
 
   deletePost(): void {
-    console.log(this.numberSelectedPostToDelete);
+    this.handlingPostService.deletePost(this.numberSelectedPostToDelete).subscribe(resp => {
+      this.isDeleted = true;
+      // console.log(resp);
+    }, error => {
+      console.log(error);
+    });
   }
 }
