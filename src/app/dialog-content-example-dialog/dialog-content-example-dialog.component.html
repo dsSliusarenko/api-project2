@@ -1,22 +1,22 @@
 <div class="action" *ngIf="!isDeleted; else template">
-<h2 mat-dialog-title>Confirm post delete:</h2>
-<mat-dialog-content class="mat-typography">
-  <p>Are you sure, that you want to delete this post? <br> This action cannot be canceled! </p>
-</mat-dialog-content>
-<hr>
-<div class="row">
-  <div class="col ">
-    <button class="btn btn-info float-end" mat-dialog-close >Back</button>
-    <button class="btn btn-danger float-end" (click)="deletePost()">Delete</button>
+  <h2 mat-dialog-title>Confirm post delete:</h2>
+  <mat-dialog-content class="mat-typography">
+    <p>Are you sure, that you want to delete this post? <br> This action cannot be canceled! </p>
+  </mat-dialog-content>
+  <hr>
+  <div class="row">
+    <div class="col ">
+      <button class="btn btn-info float-end" mat-dialog-close>Back</button>
+      <button class="btn btn-danger float-end" (click)="deletePost()">Delete</button>
+    </div>
   </div>
-</div>
 </div>
 
 <ng-template #template>
   <mat-dialog-content class="mat-typography">
     <div class="row">
-    <p>Post deleted!</p>
-      <img class="action-image" src="./assets/images/edit.svg">
+      <p class="text-center">Post deleted!</p>
+        <img class="done-image rounded mx-auto d-block" src="./assets/images/done.svg">
     </div>
   </mat-dialog-content>
 </ng-template>

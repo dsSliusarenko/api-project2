@@ -21,7 +21,9 @@ export class DialogContentExampleDialogComponent implements OnInit {
   deletePost(): void {
     this.handlingPostService.deletePost(this.numberSelectedPostToDelete).subscribe(resp => {
       this.isDeleted = true;
-      // console.log(resp);
+      setTimeout(() => {
+        document.location.reload();
+      }, 2000);
     }, error => {
       console.log(error);
     });
