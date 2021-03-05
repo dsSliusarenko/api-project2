@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../autorization-section/auth.service';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {AuthInterface} from '../autorization-section/auth.interface';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +8,6 @@ import {AuthInterface} from '../autorization-section/auth.interface';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  // isUserAuth;
   isUserAuth: Observable<any>;
 
   constructor(private authService: AuthService) {

@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {HandlingPostService} from '../services/handling-post.service';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-content-example-dialog',
@@ -10,12 +11,13 @@ export class DialogContentExampleDialogComponent {
   numberSelectedPostToDelete;
   isDeleted = false;
 
-  constructor(private handlingPostService: HandlingPostService) {
-    this.numberSelectedPostToDelete = JSON.parse(localStorage.getItem('numberSelectedPostToDelete'));
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { name: number },
+              private handlingPostService: HandlingPostService) {
+    this.numberSelectedPostToDelete = data;
   }
 
   deletePost(): void {
-    this.handlingPostService.deletePost(this.numberSelectedPostToDelete).subscribe(resp => {
+    this.handlingPostService.deletePost(this.numberSelectedPostToDelete.id).subscribe(resp => {
       this.isDeleted = true;
       setTimeout(() => {
         document.location.reload();

@@ -50,12 +50,12 @@
         <div class="">
 
 
-          <img class="action-image" src="./assets/images/edit.svg" (click)="editPost(element.id)">
+          <img class="action-image" src="./assets/images/edit.svg" routerLink="/admin/posts/{{ element.id }}">
           <small></small>
         <img class="action-image"
 
              src="./assets/images/trash.svg"
-             (click)="openDialog(element.id)">
+             (click)="showDeleteAlert(element.id)">
         </div>
       </td>
     </ng-container>

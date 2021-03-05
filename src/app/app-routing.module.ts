@@ -37,7 +37,7 @@ const appRoutes: Routes = [
         children: [
           {path: '', component: PostTableComponent},
           {path: 'new', component: CreatePostComponent},
-          {path: 'edit', component: EditPostComponent},
+          {path: ':id', component: EditPostComponent},
         ]
       },
       {path: 'users', component: UsersComponent},

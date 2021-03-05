@@ -15,33 +15,25 @@ import {DialogContentExampleDialogComponent} from '../../dialog-content-example-
   styleUrls: ['./post-table.component.css']
 })
 export class PostTableComponent implements OnInit {
-  constructor(private handlingPostService: HandlingPostService, private router: Router, public dialog: MatDialog) {
-  }
-
   displayedColumns: string[] = ['id', 'image', 'title', 'description', 'created_at', 'action'];
   posts$: Observable<Post[]>;
 
-  // this field uses to define which post should be deleted
-  // numberOfSelectedPost;
+  constructor(private handlingPostService: HandlingPostService, private router: Router, public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.posts$ = this.handlingPostService.getPosts();
   }
 
-  openDialog(id: number): void {
-
-    // set value to define post, which should be deleted
-    localStorage.setItem('numberSelectedPostToDelete', JSON.stringify(id));
-
-    const dialogRef = this.dialog.open(DialogContentExampleDialogComponent);
+  showDeleteAlert(id: number): void {
+    const dialogRef = this.dialog.open(DialogContentExampleDialogComponent, {data: {id}});
     dialogRef.afterClosed().subscribe(() => {
-      // console.log(`Dialog result: ${result}`);
     });
   }
 
-  editPost(id: number): void {
-    localStorage.setItem('numberOfEditPost', JSON.stringify(id));
-    this.router.navigate(['/admin/posts/edit']);
-  }
+  // editPost(id: number): void {
+  //   // localStorage.setItem('numberOfEditPost', JSON.stringify(id));
+  //   // this.router.navigate(['/admin/posts/id}']);
+  // }
 
 }
